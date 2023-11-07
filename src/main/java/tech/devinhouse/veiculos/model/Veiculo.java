@@ -20,7 +20,7 @@ public class Veiculo {
 
     private String cor;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "veiculo")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "veiculo")
     private List<Multa> multas;
 
 
@@ -39,6 +39,20 @@ public class Veiculo {
         this.cor = cor;
         this.multas = multas;
     }
+
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", tipoVeiculo=" + tipoVeiculo +
+                ", nome='" + nome + '\'' +
+                ", anoFabricacao=" + anoFabricacao +
+                ", cor='" + cor + '\'' +
+                ", multas=" + multas +
+                '}';
+    }
+
 
     public String getPlaca() {
         return placa;

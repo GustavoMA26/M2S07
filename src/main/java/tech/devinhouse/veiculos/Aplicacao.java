@@ -8,6 +8,8 @@ import tech.devinhouse.veiculos.model.Veiculo;
 import tech.devinhouse.veiculos.repository.MultaRepository;
 import tech.devinhouse.veiculos.repository.VeiculoRepository;
 
+import java.util.List;
+
 @Component
 public class Aplicacao {
 
@@ -34,7 +36,11 @@ public class Aplicacao {
 
         multa3.setValor(380F);
         multaRepo.save(multa3);
-        
+
+        List<Veiculo> veiculos = veiculoRepository.findAll();
+        for(Veiculo veiculo : veiculos){
+            System.out.println(veiculo);
+        }
 
     }
 
