@@ -11,6 +11,7 @@ public class Veiculo {
     @Id
     private String placa;
 
+    @Enumerated(EnumType.STRING)
     private TipoVeiculo tipoVeiculo;
 
     private String nome;
@@ -22,6 +23,22 @@ public class Veiculo {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "veiculo")
     private List<Multa> multas;
 
+
+    public Veiculo() {
+    }
+
+    public Veiculo(String placa, TipoVeiculo tipoVeiculo, String nome, Integer anoFabricacao, String cor) {
+        this(placa, tipoVeiculo, nome, anoFabricacao, cor, null);
+    }
+
+    public Veiculo(String placa, TipoVeiculo tipoVeiculo, String nome, Integer anoFabricacao, String cor, List<Multa> multas) {
+        this.placa = placa;
+        this.tipoVeiculo = tipoVeiculo;
+        this.nome = nome;
+        this.anoFabricacao = anoFabricacao;
+        this.cor = cor;
+        this.multas = multas;
+    }
 
     public String getPlaca() {
         return placa;
